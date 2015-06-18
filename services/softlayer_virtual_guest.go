@@ -630,6 +630,10 @@ func (slvgs *softLayer_Virtual_Guest_Service) CheckHostDiskAvailability(instance
 	return false, errors.New(fmt.Sprintf("Failed to check host disk availability for instance '%d', got '%s' as response from the API.", instanceId, res))
 }
 
+func (slvgs *softLayer_Virtual_Guest_Service) CaptureImage(instanceId int, captureTemplate datatypes.SoftLayer_Container_Disk_Image_Capture_Template) (datatypes.SoftLayer_Virtual_Guest_Block_Device_Template_Group, error) {
+	return datatypes.SoftLayer_Virtual_Guest_Block_Device_Template_Group{}, errors.New("Implement me!")
+}
+
 //Private methods
 func (slvgs *softLayer_Virtual_Guest_Service) checkCreateObjectRequiredValues(template datatypes.SoftLayer_Virtual_Guest_Template) error {
 	var err error

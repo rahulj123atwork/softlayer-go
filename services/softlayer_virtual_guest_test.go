@@ -803,4 +803,24 @@ var _ = Describe("SoftLayer_Virtual_Guest_Service", func() {
 			Expect(available).To(BeTrue())
 		})
 	})
+
+	Context("#CaptureImage", func() {
+		var (
+			scdict datatypes.SoftLayer_Container_Disk_Image_Capture_Template
+		)
+
+		BeforeEach(func() {
+			virtualGuest.Id = 1234567
+			fakeClient.DoRawHttpRequestResponse, err = common.ReadJsonTestFixtures("services", "SoftLayer_Virtual_Guest_Service_captureImage.json")
+			Expect(err).ToNot(HaveOccurred())
+
+			scdict = datatypes.SoftLayer_Container_Disk_Image_Capture_Template{}
+		})
+
+		It("captures an image", func() {
+			_, err := virtualGuestService.CaptureImage(virtualGuest.Id, scdict)
+
+			Expect(err).ToNot(HaveOccurred())
+		})
+	})
 })
