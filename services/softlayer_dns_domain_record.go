@@ -117,9 +117,9 @@ func (sldr *softLayer_Dns_Domain_Record_Service) DeleteObjects(recordIds []int) 
 	return true, nil
 }
 
-func (sldr *softLayer_Dns_Domain_Record_Service) GetDomain() (datatypes.SoftLayer_Dns_Domain_Record, error) {
+func (sldr *softLayer_Dns_Domain_Record_Service) GetDomain() (datatypes.SoftLayer_Dns_Domain, error) {
 	//TODO need to implement and change return type to datatypes.SoftLayer_Dns_Domain
-	return datatypes.SoftLayer_Dns_Domain_Record{}, nil
+	return datatypes.SoftLayer_Dns_Domain{}, nil
 }
 
 func (sldr *softLayer_Dns_Domain_Record_Service) UpdateObject(recordId int) (bool, error) {
