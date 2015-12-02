@@ -78,7 +78,7 @@ func (sldr *softLayer_Dns_Domain_Record_Service) GetObject(id int) (datatypes.So
 		"type",
 	}
 
-	response, err := sldr.client.DoRawHttpRequestWithObjectMask(fmt.Sprintf("%s/%s.json", sldr.GetName(), id), objectMask, "GET", new(bytes.Buffer))
+	response, err := sldr.client.DoRawHttpRequestWithObjectMask(fmt.Sprintf("%s/%d.json", sldr.GetName(), id), objectMask, "GET", new(bytes.Buffer))
 	if err != nil {
 		return datatypes.SoftLayer_Dns_Domain_Record{}, err
 	}
