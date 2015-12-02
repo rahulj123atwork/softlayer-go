@@ -10,5 +10,5 @@ type SoftLayer_Dns_Domain_Record_Service interface {
 	CreateObject(template datatypes.SoftLayer_Dns_Domain_Record_Template) (datatypes.SoftLayer_Dns_Domain_Record, error)
 	GetObject(recordId int) (datatypes.SoftLayer_Dns_Domain_Record, error)
 	DeleteObject(recordId int) (bool, error)
-	UpdateObject(recordId int, template datatypes.SoftLayer_Dns_Domain_Record_Template) (bool, error)
+	EditObject(recordId int, template datatypes.SoftLayer_Dns_Domain_Record) (bool, error)
 }
