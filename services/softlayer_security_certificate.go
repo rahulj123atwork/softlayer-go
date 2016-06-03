@@ -28,6 +28,7 @@ func (slscs *softLayer_Security_Certificate_Service) CreateSecurityCertificate(t
 	parameters := datatypes.SoftLayer_Security_Certificate_Parameters{
 		Parameters: []datatypes.SoftLayer_Security_Certificate_Template{{
 			Certificate: template.Certificate,
+			IntermediateCertificate: template.IntermediateCertificate,
 			PrivateKey:  template.PrivateKey,
 		}},
 	}
