@@ -8,7 +8,6 @@ import (
 	"github.com/TheWeatherCompany/softlayer-go/common"
 	datatypes "github.com/TheWeatherCompany/softlayer-go/data_types"
 	softlayer "github.com/TheWeatherCompany/softlayer-go/softlayer"
-	"strings"
 )
 
 type softLayer_Security_Certificate_Service struct {
@@ -25,15 +24,11 @@ func (slscs *softLayer_Security_Certificate_Service) GetName() string {
 	return "SoftLayer_Security_Certificate"
 }
 
-func formatNewLines(in string) string {
-	return strings.Replace(in, "\n", "\n", -1)
-}
-
 func (slscs *softLayer_Security_Certificate_Service) CreateSecurityCertificate(template datatypes.SoftLayer_Security_Certificate_Template) (datatypes.SoftLayer_Security_Certificate, error) {
 	parameters := datatypes.SoftLayer_Security_Certificate_Parameters{
 		Parameters: []datatypes.SoftLayer_Security_Certificate_Template{{
-			Certificate: formatNewLines(template.Certificate),
-			PrivateKey:  formatNewLines(template.PrivateKey),
+			Certificate: template.Certificate,
+			PrivateKey:  template.PrivateKey,
 		}},
 	}
 
@@ -58,6 +53,8 @@ func (slscs *softLayer_Security_Certificate_Service) CreateSecurityCertificate(t
 	if err != nil {
 		return datatypes.SoftLayer_Security_Certificate{}, err
 	}
+
+	fmt.Println("WTF" + securityCertificate.Certificate)
 
 	return securityCertificate, nil
 }
