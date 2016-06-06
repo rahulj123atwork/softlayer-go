@@ -27,9 +27,9 @@ func (slscs *softLayer_Security_Certificate_Service) GetName() string {
 func (slscs *softLayer_Security_Certificate_Service) CreateSecurityCertificate(template datatypes.SoftLayer_Security_Certificate_Template) (datatypes.SoftLayer_Security_Certificate, error) {
 	parameters := datatypes.SoftLayer_Security_Certificate_Parameters{
 		Parameters: []datatypes.SoftLayer_Security_Certificate_Template{{
-			Certificate: template.Certificate,
+			Certificate:             template.Certificate,
 			IntermediateCertificate: template.IntermediateCertificate,
-			PrivateKey:  template.PrivateKey,
+			PrivateKey:              template.PrivateKey,
 		}},
 	}
 
@@ -54,8 +54,6 @@ func (slscs *softLayer_Security_Certificate_Service) CreateSecurityCertificate(t
 	if err != nil {
 		return datatypes.SoftLayer_Security_Certificate{}, err
 	}
-
-	fmt.Println("WTF" + securityCertificate.Certificate)
 
 	return securityCertificate, nil
 }
